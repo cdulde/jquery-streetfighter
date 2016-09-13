@@ -21,12 +21,28 @@ $(document).ready(function() {
               $(".hadouken").css("left","600px");
           });
   })
-  .mouseup(function() {
+    .mouseup(function() {
       $(".ryu-throwing").hide();
       $(".ryu-ready").show();
       // ryu goes back to his ready position
-  });
+  })
+    $(document).keydown(function(key) {
+      if (key.keyCode == 88) {
+        //alert('x-key down');
+        $('.ryu-still').hide();
+        $('.ryu-ready').hide();
+        $('.ryu-cool').show();
+      }
+  })
+      $(document).keyup(function(key) {
+      if (key.keyCode == 88) {
+        //alert('x-key down');
+        $('.ryu-cool').hide();
+        $('.ryu-still').show();
+      }
+  })
 });
+
 
 function playHadouken () {
     $("#hadouken-sound")[0].volume = 0.5;
